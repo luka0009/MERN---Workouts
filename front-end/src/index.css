@@ -17,6 +17,7 @@ header .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px 20px;
+  padding-right: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,6 +37,7 @@ header a {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
+  padding: 10px;
 }
 .workout-details {
   background: #fff;
@@ -70,6 +72,11 @@ header a {
   align-items: center;
 }
 
+.workout-details span:hover {
+  background-color: #e5e5e5;
+  transition: 0.8s;
+}
+
 label, input {
   display: block;
 }
@@ -91,6 +98,12 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+form button:hover {
+  background-color: #36c296;
+  transition: 1s;
+}
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -105,3 +118,58 @@ input.error {
 /* .icon {
   color: red;
 } */
+
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  margin-left: 10px;
+}
+
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 25px;
+}
+
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+@media (max-width: 599px) {
+  .home {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 100px;
+    padding: 10px;
+  }
+
+  form.create {
+    position: absolute;
+    top: 0;
+    left: 50px;
+  }
+
+  .workout-details {
+    margin-top: 430px;
+    min-width: 250px;
+  }
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
