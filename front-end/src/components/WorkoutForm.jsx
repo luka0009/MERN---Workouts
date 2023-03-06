@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useAuthContext } from "../hooks/useAuthcontext";
 
 export default function WorkoutForm() {
   const { dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
   const [title, setTitle] = useState("");
-  const [load, setLoad] = useState(0);
-  const [reps, setReps] = useState(0);
+  const [load, setLoad] = useState('');
+  const [reps, setReps] = useState('');
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
@@ -22,7 +22,7 @@ export default function WorkoutForm() {
     const workout = { title, load, reps };
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/workouts",
+        "https://mern-app-a3em.onrender.com/api/workouts",
         JSON.stringify(workout),
         {
           headers: {
@@ -33,8 +33,8 @@ export default function WorkoutForm() {
       );
       if (response.status >= 200 && response.status < 300) {
         setTitle("");
-        setLoad(0);
-        setReps(0);
+        setLoad('');
+        setReps('');
         setError(null);
         setEmptyFields([]);
         dispatch({ type: "CREATE_WORKOUT", payload: response.data });
